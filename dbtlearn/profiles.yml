@@ -1,0 +1,41 @@
+# profiles.yml
+
+dbtlearn:
+  outputs:
+    dev:
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      database: airbnb
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: transform
+      schema: dev
+      threads: 1
+      type: snowflake
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      warehouse: compute_wh
+
+    elementary:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: elementary
+      password: IESbiyXcHfrFp8ZpJLDiPRtOqpibTdiu
+      role: ELEMENTARY_ROLE
+      warehouse: compute_wh
+      database: airbnb
+      schema: dev_elementary
+  target: dev
+
+elementary:
+  outputs:
+    default:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+
+      ## User/password auth ##
+      user: elementary
+      password: IESbiyXcHfrFp8ZpJLDiPRtOqpibTdiu
+
+      role: ELEMENTARY_ROLE
+      database: airbnb
+      warehouse: compute_wh
+      schema: dev_elementary
+      threads: 4

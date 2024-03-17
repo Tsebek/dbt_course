@@ -1,0 +1,30 @@
+repos:
+- repo: https://github.com/dbt-checkpoint/dbt-checkpoint
+  rev: v1.2.0
+  hooks:
+  # - id: check-script-semicolon
+  # - id: check-script-has-no-table-name
+  # - id: dbt-run
+  #   files: ^models/src
+  - id: dbt-test
+  #   files: ^tests
+  # - id: dbt-docs-generate
+  # - id: check-model-has-all-columns
+  #   name: Check columns - core
+  #   files: ^models/core
+  # - id: check-model-has-all-columns
+  #   name: Check columns - mart
+  #   files: ^models/mart
+  # - id: check-model-columns-have-desc
+  #   files: ^models/mart
+- repo: https://github.com/sqlfluff/sqlfluff
+  rev: 2.3.5  # Use the latest version of sqlfluff
+  hooks:
+    - id: sqlfluff-lint
+      name: sqlfluff-lint
+      entry: sqlfluff lint
+      language: python
+      # Optional: Specify which files or directories to lint
+      files: ^models/src
+      # Optional: Specify additional arguments for sqlfluff
+      args: [--dialect, snowflake]

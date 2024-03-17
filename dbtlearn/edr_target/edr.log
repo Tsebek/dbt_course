@@ -1,0 +1,113 @@
+2024-03-08 13:57:56 — INFO — Running with edr=0.14.1
+2024-03-08 13:57:56 — INFO — Installing packages for edr internal dbt package...
+2024-03-08 13:57:56 — INFO — Running dbt --log-format json deps --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 13:58:05 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'deps', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 3438
+2024-03-08 13:58:05 — INFO — Running with dbt=1.7.7
+2024-03-08 13:58:05 — INFO — Updating lock file in file path: /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project/package-lock.yml
+2024-03-08 13:58:05 — INFO — Installing dbt-labs/dbt_utils
+2024-03-08 13:58:05 — INFO — Installed from version 0.8.6
+2024-03-08 13:58:05 — INFO — Updated version available: 1.1.1
+2024-03-08 13:58:05 — INFO — Installing elementary-data/elementary
+2024-03-08 13:58:05 — INFO — Installed from version 0.14.1
+2024-03-08 13:58:05 — INFO — Up to date!
+2024-03-08 13:58:05 — INFO — 
+2024-03-08 13:58:05 — INFO — Updates available for packages: ['dbt-labs/dbt_utils']                 
+Update your versions in packages.yml, then run dbt deps
+2024-03-08 13:58:05 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+[31;20m2024-03-08 13:58:12 — ERROR — Unable to get the latest invocation: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'[0m
+2024-03-08 13:58:12 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 13:58:17 — DEBUG — Could not get warehouse info.
+Traceback (most recent call last):
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.6_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/data_monitoring/data_monitoring.py", line 140, in _get_warehouse_info
+    self.internal_dbt_runner.run_operation(
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+                              ^^^^^^^^^^^^^^^^^^
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'
+2024-03-08 13:58:17 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+[31;20m2024-03-08 13:58:22 — ERROR — Failed to parse Elementary's database and schema.[0m
+2024-03-08 13:58:22 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+[31;20m2024-03-08 13:58:27 — ERROR — Could not generate the report - Error: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'
+Please reach out to our community for help with this issue.[0m
+Traceback (most recent call last):
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/clients/dbt/dbt_runner.py", line 88, in _run_command
+    result = subprocess.run(
+             ^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.6_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' returned non-zero exit status 2.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/api/report/report.py", line 50, in get_report_data
+    tests_api = TestsAPI(
+                ^^^^^^^^^
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 39, in __init__
+    self.test_results_db_rows = self._get_test_results_db_rows(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/api/tests/tests.py", line 51, in _get_test_results_db_rows
+    return self.tests_fetcher.get_all_test_results_db_rows(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/fetchers/tests/tests.py", line 22, in get_all_test_results_db_rows
+    run_operation_response = self.dbt_runner.run_operation(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/clients/dbt/dbt_runner.py", line 160, in run_operation
+    success, command_output = self._run_command(
+                              ^^^^^^^^^^^^^^^^^^
+  File "/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/clients/dbt/dbt_runner.py", line 99, in _run_command
+    raise DbtCommandError(err, command_args, logs=logs)
+elementary.exceptions.exceptions.DbtCommandError: Failed to run dbt command.
+Encountered an error:
+Runtime Error
+  Could not find profile named 'elementary'
+2024-03-08 14:03:04 — INFO — Running with edr=0.14.1
+2024-03-08 14:03:04 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:03:25 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_latest_invocation", "macro_args": {}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 4376
+2024-03-08 14:03:25 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:03:35 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_adapter_type_and_unique_id", "macro_args": {}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 1885
+2024-03-08 14:03:35 — INFO — edr (0.14.1) and Elementary's dbt package (0.14.1) are compatible.
+2024-03-08 14:03:35 — DEBUG — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:03:45 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_elementary_database_and_schema", "macro_args": {}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 1863
+2024-03-08 14:03:45 — INFO — Elementary's database and schema: '"airbnb.dev_elementary"'
+2024-03-08 14:03:45 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:03:56 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_test_results", "macro_args": {"days_back": 7, "invocations_per_test": 720, "disable_passed_test_metrics": false}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 88475
+2024-03-08 14:03:56 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:04:16 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_source_freshness_results", "macro_args": {"days_back": 7, "invocations_per_test": 720}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 1817
+2024-03-08 14:04:16 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:04:35 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models", "macro_args": {"exclude_elementary": true}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 9025
+2024-03-08 14:04:35 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_sources", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:04:46 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_sources", "macro_args": {}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 3769
+2024-03-08 14:04:46 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_exposures", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:04:57 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_exposures", "macro_args": {}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 3063
+2024-03-08 14:04:57 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:05:09 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_runs", "macro_args": {"days_back": 7, "exclude_elementary": true}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 11287
+2024-03-08 14:05:09 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:05:17 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_dbt_models_test_coverage", "macro_args": {}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 2975
+2024-03-08 14:05:17 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:05:27 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_nodes_depends_on_nodes", "macro_args": {"exclude_elementary": true}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 6373
+2024-03-08 14:05:27 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:05:35 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_latest_invocation", "macro_args": {}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 10085
+2024-03-08 14:05:35 — INFO — Running dbt --log-format json run-operation elementary.log_macro_results --args {"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}} --project-dir /Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project
+2024-03-08 14:05:45 — DEBUG — Result bytes size for command '['dbt', '--log-format', 'json', 'run-operation', 'elementary.log_macro_results', '--args', '{"macro_name": "elementary_cli.get_models_latest_invocations_data", "macro_args": {}}', '--project-dir', '/Users/tsebek/Documents/Git/06_dbt_course/venv/lib/python3.11/site-packages/elementary/monitor/dbt_project']' is 2239
